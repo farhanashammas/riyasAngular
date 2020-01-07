@@ -32,7 +32,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.elements = this.mobileService.getLocalStorage();
-    if (this.elements.Token) {
+    if (this.elements.Token) {  
 
       this.mobileService.showProducts(this.elements.userId, this.elements.Token)
           .subscribe((data) => {

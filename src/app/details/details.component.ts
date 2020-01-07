@@ -17,7 +17,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   export class DetailsComponent implements OnInit {
     
     elements: any = {};
-    product=new Product(null,null,null,null,null,null,null,null,null,null,null,null,null);
+    product=new Product(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
     submitted:boolean=false;
     constructor(@Inject(DOCUMENT) document, private mobileService: MobileService, private sanitizer: DomSanitizer,private router: Router, private formBuilder: FormBuilder, private local: LocalStorageService) {
      }
