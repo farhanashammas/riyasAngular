@@ -1,0 +1,150 @@
+<div class="container login-container" (scroll)="onWindowScroll($event)">
+    <h1>MobiTech Electronics LLC</h1>
+    <hr>
+    <!-- <div class="row login-form-2">
+      <div class="col-sm-12 border divimg">
+        <img  [src]="transform('data:image/jpeg;base64,'+restaurant.image)" alt="Upload Image">
+      </div>
+    </div>
+    <input type="file" id="picture" name="picture" (change)="fileChange($event)" placeholder="Upload Image" accept="image/*"  *ngIf="elements.userType=='admin'" />
+   -->
+    
+  </div>
+  
+  
+  
+  
+
+  <div class="container login-container  login-form-2">
+    <div class="row">
+      <div class="col-lg-12 ">
+      <br>
+        <h2>Product Details</h2>
+      <br>
+      <br>
+    </div>
+    </div>
+      <div  *ngIf='product'>
+        <!-- <div class="row" > -->
+             <div class="row" > 
+               <div class="col-lg-6">
+               <img [src]="transform('data:image/jpeg;base64,'+product.image)" alt="Details" style="width: 300px; height: 300px;">
+              <td *ngIf="elements.userType=='admin'">
+                <button class="btn btnEdit" (click)="editItem(product._id,true)">Edit</button>&nbsp;
+                <button class="btn btnDelete" (click)="deleteItem(product._id)">Delete</button></td>
+                <br>
+              <span><a routerLink='/products' style="color: blue;"><b>Back</b></a></span>
+           </div>
+          <div class="col-sm-6 ">
+            <div class="row">
+              <div class="col-lg-6 ">
+            <h3>{{product.productName}}</h3>
+            <br>
+          </div>
+          </div>
+           <div class="row">
+            <div class="col-lg-3">
+            <label>Brand:</label>
+          </div>
+          <div class="col-lg-3">
+            <h5><b>{{product.productBrand}}</b></h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+          <label>Category:</label>
+        </div>
+        <div class="col-lg-3">
+          <label><b>{{product.productCategory}}</b></label>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-lg-3">
+          <label>Price:</label>
+        </div>
+        <div class="col-lg-3">
+          <span><b>{{product.productPrice |currency:"AED"}}</b></span>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+          <label>Colors:</label>
+        </div>
+        <div class="col-lg-3">
+          <span><b>{{product.productColor}}</b></span>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+          <label>Camera:</label>
+        </div>
+        <div class="col-lg-3">
+          <span><b>{{product.productCamera}}</b></span>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+          <label>Processor:</label>
+        </div>
+        <div class="col-lg-3">
+          <span><b>{{product.productProcessor}}</b></span>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+          <label>Available:</label>
+        </div>
+        <div class="col-lg-3">
+          <span><b>{{product.productAvailability}}</b></span>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+          <label>Memory:</label>
+        </div>
+        <div class="col-lg-3">
+          <span><b>{{product.productMemory}}</b></span>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+          <label>Description:</label>
+        </div>
+        <div class="col-lg-3">
+          <span><b>{{product.productDescription}}</b></span>
+        </div>
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+  
+<!--   
+  <div class="container login-container">
+    <div class="row login-form-2">
+      <div class="col-sm-6 ">
+        <div class="form-group">
+          <h2>{{restaurant.location}} </h2>
+          <div class="star">
+            <rating [(ngModel)]="restaurant.totalRating" [max]="max" [readonly]="true" class="rating"></rating>
+          </div>
+          <p>Contact Number:{{restaurant.contactNumber}}</p>
+        </div>
+      </div>
+      <div class="col-sm-6 " *ngIf="elements.userType=='user'">
+        <p>Rate Us</p>
+        <div class="star">
+          <rating [(ngModel)]="value" [max]="max" [readonly]="flase" class="rating"></rating><br>
+          <input type="button" class=" btn btnSubmit" value="Submit" (click)="feedback(restaurant)" />
+        </div>
+      </div>
+      <div class="col-sm-6 " *ngIf="elements.userType=='admin'">
+        <div class="star">
+          <input type="button" class=" btn btnSubmit" value="Owner Info" (click)="infoUser(restaurant.ownerId);" />
+          <br>
+          <input type="button" class="btn btnDelete" value="Delete" (click)="deleteUser(restaurant.ownerId);" />
+        </div>
+      </div>
+    </div>
+  </div>  -->

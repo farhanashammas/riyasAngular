@@ -1,0 +1,77 @@
+<div class="container login-container" (scroll)="onWindowScroll($event)">
+    <h1>MobiTech Electronics LLC</h1>
+    <hr>
+    <!-- <div class="row login-form-2">
+      <div class="col-sm-12 border divimg">
+        <img  [src]="transform('data:image/jpeg;base64,'+restaurant.image)" alt="Upload Image">
+      </div>
+    </div>
+    <input type="file" id="picture" name="picture" (change)="fileChange($event)" placeholder="Upload Image" accept="image/*"  *ngIf="elements.userType=='admin'" />
+   -->
+    
+    <!-- <div class="row" *ngIf="elements.userType=='admin'">
+      <div class="col-sm-12 div4 ">
+    </div>
+  </div> -->
+  
+  
+  
+  
+
+  <div class="container login-container">
+    <div class="row login-form-2">
+      <div class="col-sm-12 ">
+        <h2>Manage Users</h2>
+        <br><br>
+      </div>
+      
+      <div *ngIf="elements.userType=='admin'">
+      <div  *ngIf='user && user.length'>
+        <div class="row">
+          <div *ngFor = "let i of user">
+             <div class="col"> 
+               <h3>{{i.userName}}</h3>
+              <h6>email:&nbsp;{{i.email}}</h6>
+              <h6>Usertype:&nbsp;{{i.userType}}</h6>
+              <br>
+              <td *ngIf="elements.userType=='admin'">
+                <button class="btn btnDelete" (click)="deleteUser(i._id)">Delete</button></td>
+           </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+
+    <!-- </div>
+  </div> -->
+  
+<!--   
+  <div class="container login-container">
+    <div class="row login-form-2">
+      <div class="col-sm-6 ">
+        <div class="form-group">
+          <h2>{{restaurant.location}} </h2>
+          <div class="star">
+            <rating [(ngModel)]="restaurant.totalRating" [max]="max" [readonly]="true" class="rating"></rating>
+          </div>
+          <p>Contact Number:{{restaurant.contactNumber}}</p>
+        </div>
+      </div>
+      <div class="col-sm-6 " *ngIf="elements.userType=='user'">
+        <p>Rate Us</p>
+        <div class="star">
+          <rating [(ngModel)]="value" [max]="max" [readonly]="flase" class="rating"></rating><br>
+          <input type="button" class=" btn btnSubmit" value="Submit" (click)="feedback(restaurant)" />
+        </div>
+      </div>
+      <div class="col-sm-6 " *ngIf="elements.userType=='admin'">
+        <div class="star">
+          <input type="button" class=" btn btnSubmit" value="Owner Info" (click)="infoUser(restaurant.ownerId);" />
+          <br>
+          <input type="button" class="btn btnDelete" value="Delete" (click)="deleteUser(restaurant.ownerId);" />
+        </div>
+      </div>
+    </div>
+  </div>  -->
