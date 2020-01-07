@@ -29,7 +29,7 @@ export class UsersComponent implements OnInit {
     fileData: File = null;
     max = 5;
     category:Boolean=false;
-  
+    
     ngOnInit() {
       this.elements = this.mobileService.getLocalStorage();
       if (this.elements.Token) {
