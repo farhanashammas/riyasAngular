@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
   searchData: any = {};
   elements: any = {};
   count: Number;
-  product = new Product(null,null,null,null,null,null,null,null,null,null,null,null,null);
+  product = new Product(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
   flag: boolean = false;
   value;
   fileData: File = null;
