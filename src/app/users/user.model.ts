@@ -4,5 +4,7 @@ export class User {
         public email:String,
         public password:String,
         public userType:String,
+        public length:String,
+        public _id:String
     ){}
 }

@@ -23,7 +23,7 @@ export class UsersComponent implements OnInit {
     searchData: any = {};
     elements: any = {};
     count: Number;
-    user = new User(null,null,null,null);
+    user = new User(null,null,null,null,null,null);
     flag: boolean = false;
     value;
     fileData: File = null;
