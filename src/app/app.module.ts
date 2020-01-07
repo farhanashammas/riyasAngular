@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import {AngularWebStorageModule} from 'angular-web-storage';
-import {RatingModule} from 'ngx-bootstrap';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,7 @@ import { ProductsComponent } from './products/products.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { DetailsComponent } from './details/details.component';
 import { UsersComponent } from './users/users.component';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { UsersComponent } from './users/users.component';
     AddProductComponent,
     DetailsComponent,
     UsersComponent,
+    ErrorComponent,
     
   ],
   imports: [
@@ -44,8 +46,7 @@ import { UsersComponent } from './users/users.component';
     AngularWebStorageModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-    RatingModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
