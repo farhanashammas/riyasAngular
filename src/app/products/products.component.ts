@@ -75,25 +75,6 @@ export class ProductsComponent implements OnInit {
   }
 
 
-  // updating restaurants image
-
-  fileChange(event) {
-    let fileList: FileList = event.target.files;
-    if (fileList.length > 0) {
-      let file: File = fileList[0];
-      let formData: FormData = new FormData();
-      formData.append('picture', file, file.type);
-      formData.append('userId', this.elements.userId);
-      this.mobileService.uploadImage(formData, this.elements.Token)
-        .subscribe((result) => {
-          alert(JSON.parse(JSON.stringify(result)).Status);
-          this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-            this.router.navigate(['show']);
-          });
-        })
-
-    }
-  }
 
  
   productDetail(id){

@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LocalStorageService, SessionStorageService, LocalStorage, SessionStorage } from 'angular-web-storage';
 import { BehaviorSubject } from 'rxjs';
-const url='http://localhost:3000';
+// const url='http://localhost:3000';
+const url="https://mobitechbackend.herokuapp.com";
 
 
 @Injectable({
@@ -22,11 +23,11 @@ export class MobileService {
   logOutStatus = this.logOut.asObservable();  
 
   signup(signupData) {
-    return this.http.post("http://localhost:3000/signupUser", signupData);
+    return this.http.post(url+"/signupUser", signupData);
   }
 
   login(loginData) {
-    return this.http.post("http://localhost:3000/login", loginData);
+    return this.http.post(url+"/login", loginData);
   }
 
   showProducts(userId, Token) {
@@ -56,7 +57,7 @@ export class MobileService {
 
   addItem(product, Token) {
     let options = this.createHeaders(Token);
-    return this.http.post("http://localhost:3000/products/addItem", product, options);
+    return this.http.post(url+"/products/addItem", product, options);
   }
 
   itemFetch(userId, itemId, Token) {
@@ -77,11 +78,6 @@ export class MobileService {
   changeUserName(name: string, logout: string) {
     this.userName.next(name);
     this.logOut.next(logout);
-  }
-
-  uploadImage(picture, Token) {
-    let options = this.createHeaders(Token);
-    return this.http.post("https://foodcourtbackend.herokuapp.com/restaurant/image", picture, options);
   }
 
   createHeaders(Token) {  
