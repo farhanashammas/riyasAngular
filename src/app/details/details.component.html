@@ -26,97 +26,109 @@
     </div>
       <div  *ngIf='product'>
         <!-- <div class="row" > -->
+          <span><a routerLink='/products' style="color: blue;"><b>Back</b></a></span>
+
              <div class="row" > 
                <div class="col-sm-6">
-               <img [src]="transform('data:image/jpeg;base64,'+product.image)" alt="Details" style="width: 300px; height: 300px;">
+                 
+               <img [src]="transform('data:image/jpeg;base64,'+product.image)" alt="Details" style="width: 300px; height: 300px; border-radius: 5%;">
               <td *ngIf="elements.userType=='admin'">
                 <button class="btn btnEdit" (click)="editItem(product._id,true)">Edit</button>&nbsp;
                 <button class="btn btnDelete" (click)="deleteItem(product._id)">Delete</button></td>
-                <br>
-              <span><a routerLink='/products' style="color: blue;"><b>Back</b></a></span>
+                <!-- <br> -->
+                <!-- <br> -->
+              <!-- <br> -->
            </div>
           <div class="col-sm-6 ">
             <div class="row">
               <div class="col-sm-6 ">
-            <h3>{{product.productName}}</h3>
+            <h3 style="color: #428bca;">{{product.productName}}</h3>
             <br>
           </div>
           </div>
            <div class="row">
-            <div class="col-sm-3">
-            <label>Brand:</label>
-          </div>
-          <div class="col-sm-3">
-            <h5><b>{{product.productBrand}}</b></h5>
-          </div>
+            <!-- <div class="col-sm-3"> -->
+            <p>Brand:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <!-- </div> -->
+          <!-- <div class="col-sm-3"> -->
+            <h5 style="color: #428bca;"><b>{{product.productBrand}}</b></h5>
+          <!-- </div> -->
         </div>
         <div class="row">
-          <div class="col-sm-3">
-          <label>Category:</label>
-        </div>
-        <div class="col-sm-3">
-          <label><b>{{product.productCategory}}</b></label>
-        </div>
+          <!-- <div class="col-sm-3"> -->
+          <p >Category:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- </div> -->
+        <!-- <div class="col-sm-3"> -->
+          <span><b>{{product.productCategory}}</b></span>
+        <!-- </div> -->
       </div>
         <div class="row">
-          <div class="col-sm-3">
-          <label>Price:</label>
-        </div>
-        <div class="col-sm-3">
+          <!-- <div class="col-sm-3"> -->
+          <p>Price:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- </div> -->
+        <!-- <div class="col-sm-3"> -->
           <span><b>{{product.productPrice |currency:"AED"}}</b></span>
-        </div>
+        <!-- </div> -->
         </div>
         <div class="row">
-          <div class="col-sm-3">
-          <label>Colors:</label>
-        </div>
-        <div class="col-sm-3">
+          <!-- <div class="col-sm-3"> -->
+          <p>Colors:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- </div> -->
+        <!-- <div class="col-sm-3"> -->
           <span><b>{{product.productColor}}</b></span>
-        </div>
+        <!-- </div> -->
         </div>
         <div class="row">
-          <div class="col-sm-3">
-          <label>Camera:</label>
-        </div>
-        <div class="col-sm-3">
+          <!-- <div class="col-sm-3"> -->
+          <p>Camera:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- </div> -->
+        <!-- <div class="col-sm-3"> -->
           <span><b>{{product.productCamera}}</b></span>
-        </div>
+        <!-- </div> -->
         </div>
         <div class="row">
-          <div class="col-sm-3">
-          <label>Processor:</label>
-        </div>
-        <div class="col-sm-3">
+          <!-- <div class="col-sm-3"> -->
+          <p>Processor:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- </div> -->
+        <!-- <div class="col-sm-3"> -->
           <span><b>{{product.productProcessor}}</b></span>
-        </div>
+        <!-- </div> -->
         </div>
         <div class="row">
-          <div class="col-sm-3">
-          <label>Available:</label>
-        </div>
-        <div class="col-sm-3">
+          <!-- <div class="col-sm-3"> -->
+          <p>Available:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- </div> -->
+        <!-- <div class="col-sm-3"> -->
           <span><b>{{product.productAvailability}}</b></span>
-        </div>
+        <!-- </div> -->
         </div>
         <div class="row">
-          <div class="col-sm-3">
-          <label>Memory:</label>
-        </div>
-        <div class="col-sm-3">
+          <!-- <div class="col-sm-3"> -->
+          <p>Memory:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- </div> -->
+        <!-- <div class="col-sm-3"> -->
           <span><b>{{product.productMemory}}</b></span>
-        </div>
+        <!-- </div> -->
         </div>
         <div class="row">
-          <div class="col-sm-3">
-          <label>Description:</label>
-        </div>
-        <div class="col-sm-3">
+          <!-- <div class="col-sm-3"> -->
+          <p>Description:</p>&nbsp;&nbsp;&nbsp;
+        <!-- </div> -->
+        <!-- <div class="col-sm-3"> -->
           <span><b>{{product.productDescription}}</b></span>
+        <!-- </div> -->
         </div>
+       
+        <div class="row">
+          <p>User Rating:</p>&nbsp;&nbsp;&nbsp;
+          <div class="star">
+            <span><rating [(ngModel)]="product.totalRating" [max]="max" [readonly]='true' class="rating"></rating></span>
+          </div>
         </div>
-        
         <div class="col-sm-6 " *ngIf="elements.userType=='user'">
-          <p>Rate This Product</p>
+          <br>
+          <br>
+          <p style="color: #428bca;">Rate This Product</p>
           <div class="star">
             <rating [(ngModel)]="value" [max]="max" [readonly]="flase" class="rating"></rating><br>
             <input type="button" class=" btn btnSubmit" value="Submit" (click)="feedback(product)" />

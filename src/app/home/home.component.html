@@ -13,9 +13,9 @@
         <div class="row">
             <div class="col-sm-12">
         <form [formGroup]="registerForm" (click)="search();">
-          <div class="input-group">
-            <select formControlName="fieldType">
-              <option value="productBrand">Brand</option>
+          <div class="input-group" >
+            <select formControlName="fieldType"  class="custom btn btn1">
+              <option value="productBrand"> Brand</option>
               <option value="productName">Name</option>
               <option value="productCategory">Category</option>
             </select>
@@ -38,8 +38,8 @@
   <div *ngIf="restaurants && restaurants.length">
     <div *ngFor="let r of restaurants" class="container login-container">
       <div class="row login-form-2">
-        <div class="col-sm-3 border divimg">
-          <img [src]="transform('data:image/jpeg;base64,'+r.image)" alt="" >
+        <div class="col-sm-3  ">
+          <a (click)="productDetail(r._id)"><img [src]="transform('data:image/jpeg;base64,'+r.image)" alt="" style="width: 300px; height: 300px; border-radius: 5%;" ></a>
           <td *ngIf="elements.userType=='admin'">
             <button class="btn btnEdit" (click)="editItem(r._id,true)" >Edit</button>
             <button class="btn btnDelete" (click)="deleteItem(r._id)">Delete</button></td>
@@ -49,7 +49,7 @@
             <h1>{{r.productName}}</h1>
             <h2>{{r.productPrice | currency:"AED"}}</h2>
             <div class="star">
-              <rating [(ngModel)]="max" [max]="max" [readonly]='true' class="rating"></rating>
+              <rating [(ngModel)]="r.totalRating" [max]="max" [readonly]='true' class="rating"></rating>
             </div>
             
             <br>

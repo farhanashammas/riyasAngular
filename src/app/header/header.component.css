@@ -1,5 +1,5 @@
 header {
-    padding: 100px 0 300px 0;
+    padding: 0 0 220px 0;
   }
 
 img{
@@ -14,7 +14,7 @@ img{
     padding:1px 30px 1px 2px;
 }
 h2{
-   color: black;
+   color: white;
    font-style: normal;
    font-weight: bold;
 }
@@ -34,8 +34,7 @@ h2{
     border: none;
     cursor: pointer;
     background-color: inherit;
-    color:rgb(8, 8, 8);
-  
+    color:white;  
 }
 
 

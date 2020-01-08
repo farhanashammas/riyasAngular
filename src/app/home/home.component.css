@@ -16,7 +16,9 @@ select{
     font-weight: bold;
    
 }
-
+.custom{
+    width: 200px;
+}
 
 
 .login-form-2{
