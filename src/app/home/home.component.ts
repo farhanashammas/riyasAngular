@@ -50,8 +50,8 @@ export class HomeComponent implements OnInit {
   
               let result = JSON.parse(JSON.stringify(restaurants));
   
-              this.restaurants = result.restaurants
-              .sort((a,b) => b._id.localeCompare(a._id));
+              this.restaurants = result.restaurants;
+              // .sort((a,b) => b._id.localeCompare(a._id));
             //  console.log(this.restaurants);
   
               this.count = 0;
@@ -115,8 +115,8 @@ export class HomeComponent implements OnInit {
       this.searchData.count = this.count;
       this.mobileService.search(this.searchData, this.elements.Token)
         .subscribe((result) => {
-          let results = JSON.parse(JSON.stringify(result))
-          .sort((a,b) => b._id.localeCompare(a._id));
+          let results = JSON.parse(JSON.stringify(result));
+          // .sort((a,b) => b._id.localeCompare(a._id));
           if (results.Status == "Error") {
             alert(results.Status);
           }
