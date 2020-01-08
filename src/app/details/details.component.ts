@@ -15,11 +15,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 
   
   export class DetailsComponent implements OnInit {
-    
+    flase;
     elements: any = {};
     product=new Product(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
     submitted:boolean=false;
     value;
+  max = 5;
+   
     constructor(@Inject(DOCUMENT) document, private mobileService: MobileService, private sanitizer: DomSanitizer,private router: Router, private formBuilder: FormBuilder, private local: LocalStorageService) {
      }
   
