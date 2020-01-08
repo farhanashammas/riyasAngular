@@ -6,11 +6,12 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { DetailsComponent } from './details/details.component';
 import { UsersComponent } from './users/users.component';
 import { ErrorComponent } from './error/error.component';
+import { HomeComponent } from './home/home.component';
 
 
 
 const routes: Routes = [{path:'',component:DynamicComponent},
-                        {path:'products',component:ProductsComponent},
+                        {path:'products',component:HomeComponent},
                         {path:'additem',component:AddProductComponent},
                         {path:'details',component:DetailsComponent},
                         {path:'users',component:UsersComponent},

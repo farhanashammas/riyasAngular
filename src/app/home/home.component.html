@@ -1,0 +1,70 @@
+<div class="row" *ngIf="elements.userType=='admin'">
+    <div class="col-sm-6">
+      <button type="button" (click)="addItem(false);" class="btn4 btn-primary">Add Item</button>
+      <button type="button" (click)="manageUsers();" class="btn4 btn-primary">Manage Users</button></div>
+
+  </div>
+
+
+<div class="container login-container" (scroll)="onWindowScroll($event)" *ngIf="elements.userType!='restaurant'">
+    <div class="row">
+      <div class="col-sm-12 login-form-1">
+        <h2>New Arrivals!</h2>
+        <div class="row">
+            <div class="col-sm-12">
+        <form [formGroup]="registerForm" (click)="search();">
+          <div class="input-group">
+            <select formControlName="fieldType">
+              <option value="productBrand">Brand</option>
+              <option value="productName">Name</option>
+              <option value="productCategory">Category</option>
+            </select>
+            <input type="text" class="form-control" formControlName="searchKey" id="search" placeholder="Search...">
+            <span class="input-group-btn">
+              <input type="submit" class="btn btn-primary btn1" value="Search">
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+    </div>
+</div>
+  
+  
+  
+  
+  
+  <div *ngIf="restaurants && restaurants.length">
+    <div *ngFor="let r of restaurants" class="container login-container">
+      <div class="row login-form-2">
+        <div class="col-sm-3 border divimg">
+          <img [src]="transform('data:image/jpeg;base64,'+r.image)" alt="" >
+          <td *ngIf="elements.userType=='admin'">
+            <button class="btn btnEdit" (click)="editItem(r._id,true)" >Edit</button>
+            <button class="btn btnDelete" (click)="deleteItem(r._id)">Delete</button></td>
+        </div>
+        <div class="col-sm-6 ">
+          <div class="form-group">
+            <h1>{{r.productName}}</h1>
+            <h2>{{r.productPrice | currency:"AED"}}</h2>
+            <div class="star">
+              <rating [(ngModel)]="r.totalRating" [max]="max" [readonly]='true' class="rating"></rating>
+            </div>
+            <br>
+            <input type="button" class="btnSubmit" value="Details" (click)='productDetail(r._id)' />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container login-container">
+    <div class="row next">
+      <div class="col-sm-6 backward"> <input type="button" value="<" id="btn5" (click)="backward()" *ngIf="backwardMove" /> </div>
+      <div class="col-sm-6 forward"> <input type="button" value=">" id="btn5" (click)="forward()" *ngIf="forwardMove" /> </div>
+    </div>
+  
+  </div>
+  
+  

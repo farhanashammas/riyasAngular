@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import {AngularWebStorageModule} from 'angular-web-storage';
+import {RatingModule} from 'ngx-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +23,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { DetailsComponent } from './details/details.component';
 import { UsersComponent } from './users/users.component';
 import { ErrorComponent } from './error/error.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -38,11 +42,14 @@ import { ErrorComponent } from './error/error.component';
     DetailsComponent,
     UsersComponent,
     ErrorComponent,
+    HomeComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    RatingModule,
     AngularWebStorageModule,
     HttpClientModule,
     FormsModule,

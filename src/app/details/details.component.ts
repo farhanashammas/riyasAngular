@@ -19,6 +19,7 @@ import { DomSanitizer } from '@angular/platform-browser';
     elements: any = {};
     product=new Product(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
     submitted:boolean=false;
+    value;
     constructor(@Inject(DOCUMENT) document, private mobileService: MobileService, private sanitizer: DomSanitizer,private router: Router, private formBuilder: FormBuilder, private local: LocalStorageService) {
      }
   
@@ -96,5 +97,16 @@ import { DomSanitizer } from '@angular/platform-browser';
     });
   }
 
+  feedback(restaurant) {
+    this.mobileService.feedback(this.elements.userId, restaurant._id, this.value, this.elements.Token)
+      .subscribe((result) => {
+        console.log(result)
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['details']);
+        });
+      
+
+      });
+  }
   }
   

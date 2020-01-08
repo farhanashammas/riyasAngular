@@ -17,7 +17,7 @@
 
   <div class="container login-container  login-form-2">
     <div class="row">
-      <div class="col-lg-12 ">
+      <div class="col-sm-12 ">
       <br>
         <h2>Product Details</h2>
       <br>
@@ -27,7 +27,7 @@
       <div  *ngIf='product'>
         <!-- <div class="row" > -->
              <div class="row" > 
-               <div class="col-lg-6">
+               <div class="col-sm-6">
                <img [src]="transform('data:image/jpeg;base64,'+product.image)" alt="Details" style="width: 300px; height: 300px;">
               <td *ngIf="elements.userType=='admin'">
                 <button class="btn btnEdit" (click)="editItem(product._id,true)">Edit</button>&nbsp;
@@ -37,85 +37,91 @@
            </div>
           <div class="col-sm-6 ">
             <div class="row">
-              <div class="col-lg-6 ">
+              <div class="col-sm-6 ">
             <h3>{{product.productName}}</h3>
             <br>
           </div>
           </div>
            <div class="row">
-            <div class="col-lg-3">
+            <div class="col-sm-3">
             <label>Brand:</label>
           </div>
-          <div class="col-lg-3">
+          <div class="col-sm-3">
             <h5><b>{{product.productBrand}}</b></h5>
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-sm-3">
           <label>Category:</label>
         </div>
-        <div class="col-lg-3">
+        <div class="col-sm-3">
           <label><b>{{product.productCategory}}</b></label>
         </div>
       </div>
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-sm-3">
           <label>Price:</label>
         </div>
-        <div class="col-lg-3">
+        <div class="col-sm-3">
           <span><b>{{product.productPrice |currency:"AED"}}</b></span>
         </div>
         </div>
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-sm-3">
           <label>Colors:</label>
         </div>
-        <div class="col-lg-3">
+        <div class="col-sm-3">
           <span><b>{{product.productColor}}</b></span>
         </div>
         </div>
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-sm-3">
           <label>Camera:</label>
         </div>
-        <div class="col-lg-3">
+        <div class="col-sm-3">
           <span><b>{{product.productCamera}}</b></span>
         </div>
         </div>
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-sm-3">
           <label>Processor:</label>
         </div>
-        <div class="col-lg-3">
+        <div class="col-sm-3">
           <span><b>{{product.productProcessor}}</b></span>
         </div>
         </div>
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-sm-3">
           <label>Available:</label>
         </div>
-        <div class="col-lg-3">
+        <div class="col-sm-3">
           <span><b>{{product.productAvailability}}</b></span>
         </div>
         </div>
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-sm-3">
           <label>Memory:</label>
         </div>
-        <div class="col-lg-3">
+        <div class="col-sm-3">
           <span><b>{{product.productMemory}}</b></span>
         </div>
         </div>
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-sm-3">
           <label>Description:</label>
         </div>
-        <div class="col-lg-3">
+        <div class="col-sm-3">
           <span><b>{{product.productDescription}}</b></span>
         </div>
         </div>
         
-        
+        <div class="col-sm-6 " *ngIf="elements.userType=='user'">
+          <p>Rate This Product</p>
+          <div class="star">
+            <rating [(ngModel)]="value" [max]="max" [readonly]="flase" class="rating"></rating><br>
+            <input type="button" class=" btn btnSubmit" value="Submit" (click)="feedback(product)" />
+          </div>
+        </div>
       </div>
     </div>
   </div>

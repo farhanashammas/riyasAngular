@@ -14,6 +14,7 @@ export class Product {
         public totalRating: Number,
         public productDescription:String,
         public length:String,
+        
         public _id:String    
     ) { }
 }
