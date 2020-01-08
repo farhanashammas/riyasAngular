@@ -102,7 +102,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   feedback(restaurant) {
     this.mobileService.feedback(this.elements.userId, restaurant._id, this.value, this.elements.Token)
       .subscribe((result) => {
-        console.log(result)
+        // console.log(result)
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this.router.navigate(['details']);
         });
