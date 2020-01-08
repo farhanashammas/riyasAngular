@@ -25,9 +25,6 @@ export class HeaderComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
 
-
-
-
   logout() {
 
     //on logout clear local storage and reset state
