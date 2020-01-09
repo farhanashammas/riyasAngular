@@ -14,13 +14,15 @@
   
     <div class="collapse navbar-collapse rightdiv" [ngClass]="{'show':navbarOpen}" >
       <ul class="navbar-nav ml-auto " >
-        <li class="nav-item">
+        <li class="nav-item" style="margin-top: 40px;">
           <h4 class="btnSubmit" id="headuser" *ngIf="flag">{{userName}}</h4>
         </li>
   
         <li class="nav-item">
-          <h4 class="btnSubmit" id="logout" (click)="logout();" *ngIf="flag">{{logOut}}</h4>
+          <h4 class="btnSubmit" id="logout" (click)="logout();" *ngIf="flag" style="margin-top: 40px;">{{logOut}}</h4>
         </li>
+        <li> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         <h4> <a target="_blank" href="https://www.facebook.com/mobitechelectronic/" class="fa fa-facebook" title="Facebook"></a></h4></li>
       </ul>
     </div>
   </nav>
