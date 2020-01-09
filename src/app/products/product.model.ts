@@ -10,11 +10,11 @@ export class Product {
         public productMemory: String,
         public productProcessor: String,
         public productAvailability: String,
+        public note:String,
         public userRating: {},
         public totalRating: Number,
         public productDescription:String,
         public length:String,
-        
         public _id:String    
     ) { }
 }

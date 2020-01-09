@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LocalStorageService, SessionStorageService, LocalStorage, SessionStorage } from 'angular-web-storage';
 import { BehaviorSubject } from 'rxjs';
-// const url='http://localhost:3000';
-const url="https://mobitechbackend.herokuapp.com";
+const url='http://localhost:3000';  
+// const url="https://mobitechbackend.herokuapp.com";
 
 
 @Injectable({
@@ -89,6 +89,16 @@ export class MobileService {
   feedback(userId, resId, userCount, Token) {
     let options = this.createHeaders(Token);
     return this.http.post(url+"/products/feedback", { userId: userId, resId: resId, userCount: userCount }, options);
+  }
+
+  getNote(userId,Token){
+    let options = this.createHeaders(Token);
+    return this.http.post(url+"/note", { userId: userId}, options);
+  }
+
+  notification(userId, note, Token){
+    let options = this.createHeaders(Token);
+    return this.http.post(url+"/newNote", { userId: userId, note: note }, options);
   }
 
   changeUserName(name: string, logout: string) {

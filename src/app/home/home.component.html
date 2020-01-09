@@ -1,14 +1,25 @@
 <div class="row" *ngIf="elements.userType=='admin'">
     <div class="col-sm-6">
       <button type="button" (click)="addItem(false);" class="btn4 btn-primary">Add Item</button>
-      <button type="button" (click)="manageUsers();" class="btn4 btn-primary">Manage Users</button></div>
-
+      <button type="button" (click)="manageUsers();" class="btn4 btn-primary">Manage Users</button>
+       <button type="button" (click)="click()" class="btn4 btn-primary">Edit Notification</button>      
+    </div>
+    <div *ngIf="elements.userType=='admin' && input">
+    <input type="text" name="note" id="notification" [(ngModel)]='note'  value="notification">
+    <input type="submit" class="btn btn-primary btn1" value="Update" (click)=newNote()>
   </div>
-
+  </div>
+  
 
 <div class="container login-container" (scroll)="onWindowScroll($event)" *ngIf="elements.userType!='restaurant'">
     <div class="row">
+      
       <div class="col-sm-12 login-form-1">
+        <marquee width="90%" direction="left" height="50px">
+         <h3> <span style="color: red;">New!!</span>&nbsp;{{note}}</h3> 
+          </marquee>
+          <!-- <font color="WHITE"><marquee direction="left" style="background:#428bca;height: 50px;">TEXT</marquee></font> -->
+         
         <h2>New Arrivals!</h2>
         <div class="row">
             <div class="col-sm-12">
@@ -49,7 +60,7 @@
             <h1>{{r.productName}}</h1>
             <h2>{{r.productPrice | currency:"AED"}}</h2>
             <div class="star">
-              <rating [(ngModel)]="r.totalRating" [max]="max" [readonly]='true' class="rating"></rating>
+              <rating [(ngModel)]="r.totalRating" [max]="max" [readonly]='true' class="rating" style="color: yellow;"></rating>
             </div>
             
             <br>

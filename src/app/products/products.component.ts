@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
   searchData: any = {};
   elements: any = {};
   count: Number;
-  product = new Product(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+  product = new Product(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
   flag: boolean = false;
   value;
   fileData: File = null;
@@ -43,7 +43,8 @@ export class ProductsComponent implements OnInit {
             }
             else {
               // console.log("DAata   "+result.restaurant.items[0]._id);
-              this.product = result.data.sort((a,b) => b._id.localeCompare(a._id));
+              this.product = result.data;
+              // .sort((a,b) => b._id.localeCompare(a._id));
               // console.log(this.product);
               
             }

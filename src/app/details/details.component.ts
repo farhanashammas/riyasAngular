@@ -17,7 +17,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   export class DetailsComponent implements OnInit {
     flase;
     elements: any = {};
-    product=new Product(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+    product=new Product(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
     submitted:boolean=false;
     value;
   max = 5;

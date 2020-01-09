@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
 
   
     registerForm: FormGroup;
+    registerForm1: FormGroup;
     submitted = false;
     searchData: any = {};
     elements: any = {};
@@ -25,12 +26,19 @@ export class HomeComponent implements OnInit {
     backwardMove: boolean = false;
     totalDocs = 0;
     value;
+    input:Boolean=false;
+    note:String;
 
     constructor(@Inject(DOCUMENT) document, private mobileService: MobileService, private router: Router, private formBuilder: FormBuilder, public local: LocalStorageService, private sanitizer: DomSanitizer) { }
   
     ngOnInit() {
       this.elements = this.mobileService.getLocalStorage();
-      if (this.elements.Token) {
+        if (this.elements.Token) {
+        this.mobileService.getNote(this.elements.userId,this.elements.Token)
+        .subscribe((data) => {
+          this.note = JSON.parse(JSON.stringify(data));
+          });           
+
         this.registerForm = this.formBuilder.group({
           searchKey: ['', [Validators.required, Validators.minLength(1)]],
           fieldType: ['productBrand', Validators.required]
@@ -41,9 +49,11 @@ export class HomeComponent implements OnInit {
   
         //state loading from service
         let data = this.mobileService.getDataPresent();
-  
+
+       
   
         if (!data.restaurants) {
+          
           this.mobileService.products(this.elements.userId, this.elements.Token)
             .subscribe((restaurants) => {
             //  console.log(restaurants);
@@ -70,6 +80,8 @@ export class HomeComponent implements OnInit {
           this.registerForm.get('searchKey').setValue(data.searchKey);
           this.registerForm.get('fieldType').setValue(data.fieldType);
         }
+
+        
       }
       else {
         this.router.navigateByUrl("");
@@ -200,16 +212,6 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['additem']);
       });
     }
-  
-    // feedback(restaurant) {
-    //   this.mobileService.feedback(this.elements.userId, restaurant._id, this.value, this.elements.Token)
-    //     .subscribe((result) => {
-    //       this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-    //         this.router.navigate(['details']);
-    //       });
-  
-    //     });
-    // }
     
     addItem(flag) {
       this.local.remove('flag');
@@ -225,6 +227,22 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  click(){
+    this.input=true;
+  }
+  
+  newNote(){
+    // console.log(this.note);
+          this.mobileService.notification(this.elements.userId,this.note,this.elements.Token)
+        .subscribe((result) => {
+          if (JSON.parse(JSON.stringify(result)).Status == "Success") {
+            // console.log((JSON.parse(JSON.stringify(result))));
+            // alert("Success")
+          }
+          else 
+            alert("error");
+        });
+    }
   
   }
   

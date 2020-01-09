@@ -11,7 +11,7 @@ import { MobileService } from 'src/app/mobile.service';
 })
 export class LoginformComponent implements OnInit {
 
-  loginData = new Login(null, null, null);
+  loginData = new Login(null,  null,null);
   registerForm: FormGroup;
   submitted = false;
   result: any = {};
@@ -43,7 +43,7 @@ export class LoginformComponent implements OnInit {
     this.loginData.email = this.registerForm.get('email').value;
     this.loginData.password = this.registerForm.get('password').value;
     this.loginData.userType = this.registerForm.get('userType').value;
-
+// console.log(this.loginData)
 
     this.mobileService.login(this.loginData)
       .subscribe((result) => {

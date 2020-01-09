@@ -42,15 +42,16 @@ export class SignupformComponent implements OnInit {
   signup() {
     this.submitted = true;
     if (this.registerForm.invalid) {
+      console.log("form invalid")
       return;
-    }
+    } 
    
     this.signupData.userName = this.registerForm.get('userName').value;
     this.signupData.email = this.registerForm.get('email').value;
     this.signupData.password = this.registerForm.get('password').value;
     this.signupData.userType = "user";
 
-
+    console.log(this.signupData)
     this.mobileService.signup(this.signupData)
       .subscribe((result) => {
         this.Status = JSON.parse(JSON.stringify(result)).Status;
