@@ -148,16 +148,6 @@ export class HomeComponent implements OnInit {
         }); 
     }
   
-  //for navigating to a particular restaurant 
-  
-    menu(id) {
-      this.local.remove('id');
-      this.local.set('id', id);
-      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this.router.navigate(['show']);
-      });
-    }
-  
     onReset() {
       this.submitted = false;
       this.registerForm.reset();
