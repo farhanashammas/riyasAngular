@@ -53,21 +53,13 @@ export class HomeComponent implements OnInit {
        
   
         if (!data.data) {
-          
-          this.mobileService.products(this.elements.userId, this.elements.Token)
+        this.mobileService.products(this.elements.userId, this.elements.Token)
             .subscribe((data) => {
-            //  console.log(restaurants);
-  
-              let result = JSON.parse(JSON.stringify(data));
-  
-              this.products = result.restaurants;
+             let result = JSON.parse(JSON.stringify(data));
+             this.products = result.data;
               // .sort((a,b) => b._id.localeCompare(a._id));
-            //  console.log(this.restaurants);
-  
-              this.count = 0;
-  
-  
-              this.mobileService.setDataPresent(this.products, this.count, result.totalDocs,"","location",false,false); 
+                this.count = 0;
+                this.mobileService.setDataPresent(this.products, this.count, result.totalDocs,"","location",false,false); 
     
             });
         }
@@ -134,6 +126,7 @@ export class HomeComponent implements OnInit {
           }
           else {
             this.products = results.data;
+            // console.log(this.products)
             this.totalDocs = results.totalDocs;
             // console.log("Totaldocs count "+this.totalDocs+" "+ this.count);
             if(this.count>=0 && this.totalDocs-10>this.count ){
