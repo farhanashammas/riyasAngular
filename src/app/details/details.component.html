@@ -122,7 +122,7 @@
         <div class="row">
           <p>User Rating:</p>&nbsp;&nbsp;&nbsp;
           <div class="star">
-            <span><rating [(ngModel)]="product.totalRating" [max]="max" [readonly]='true' class="rating" style="color: yellow;"></rating></span>
+            <span><rating [(ngModel)]="product.totalRating" [max]="max" [readonly]='true' class="rating" style="color: #428bca;"></rating></span>
           </div>
         </div>
         <div class="col-sm-6 " *ngIf="elements.userType=='user'">
@@ -138,31 +138,3 @@
     </div>
   </div>
   
-<!--   
-  <div class="container login-container">
-    <div class="row login-form-2">
-      <div class="col-sm-6 ">
-        <div class="form-group">
-          <h2>{{restaurant.location}} </h2>
-          <div class="star">
-            <rating [(ngModel)]="restaurant.totalRating" [max]="max" [readonly]="true" class="rating"></rating>
-          </div>
-          <p>Contact Number:{{restaurant.contactNumber}}</p>
-        </div>
-      </div>
-      <div class="col-sm-6 " *ngIf="elements.userType=='user'">
-        <p>Rate Us</p>
-        <div class="star">
-          <rating [(ngModel)]="value" [max]="max" [readonly]="flase" class="rating"></rating><br>
-          <input type="button" class=" btn btnSubmit" value="Submit" (click)="feedback(restaurant)" />
-        </div>
-      </div>
-      <div class="col-sm-6 " *ngIf="elements.userType=='admin'">
-        <div class="star">
-          <input type="button" class=" btn btnSubmit" value="Owner Info" (click)="infoUser(restaurant.ownerId);" />
-          <br>
-          <input type="button" class="btn btnDelete" value="Delete" (click)="deleteUser(restaurant.ownerId);" />
-        </div>
-      </div>
-    </div>
-  </div>  -->
