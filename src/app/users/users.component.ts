@@ -23,7 +23,7 @@ export class UsersComponent implements OnInit {
     searchData: any = {};
     elements: any = {};
     count: Number;
-    user = new User(null,null,null,null,null,null);
+    user = new User(null,null,null,null,null,null,null);
     flag: boolean = false;
     value;
     fileData: File = null;
@@ -43,7 +43,8 @@ export class UsersComponent implements OnInit {
               }
               else {
                 // console.log("DAata   "+result.restaurant.items[0]._id);
-                this.user = result.data.sort((a,b) => b._id.localeCompare(a._id));
+                this.user = result.data;
+                // .sort((a,b) => b._id.localeCompare(a._id));
                 // console.log(this.user);
                 
               }

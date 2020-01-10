@@ -52,27 +52,27 @@ export class HomeComponent implements OnInit {
 
        
   
-        if (!data.restaurants) {
+        if (!data.data) {
           
           this.mobileService.products(this.elements.userId, this.elements.Token)
-            .subscribe((restaurants) => {
+            .subscribe((data) => {
             //  console.log(restaurants);
   
-              let result = JSON.parse(JSON.stringify(restaurants));
+              let result = JSON.parse(JSON.stringify(data));
   
-              this.restaurants = result.restaurants;
+              this.products = result.restaurants;
               // .sort((a,b) => b._id.localeCompare(a._id));
             //  console.log(this.restaurants);
   
               this.count = 0;
   
   
-              this.mobileService.setDataPresent(this.restaurants, this.count, result.totalDocs,"","location",false,false); 
+              this.mobileService.setDataPresent(this.products, this.count, result.totalDocs,"","location",false,false); 
     
             });
         }
         else {
-          this.restaurants = data.restaurants;
+          this.products = data.data;
           this.count = data.count;
           this.totalDocs = data.totalDocs;
           this.forwardMove=data.forwardMove;
@@ -88,7 +88,7 @@ export class HomeComponent implements OnInit {
       }
     }
   
-    restaurants: Product[];
+    products: Product[];
     max: number = 5;
   
   
@@ -133,7 +133,7 @@ export class HomeComponent implements OnInit {
             alert(results.Status);
           }
           else {
-            this.restaurants = results.restaurants;
+            this.products = results.data;
             this.totalDocs = results.totalDocs;
             // console.log("Totaldocs count "+this.totalDocs+" "+ this.count);
             if(this.count>=0 && this.totalDocs-10>this.count ){
@@ -149,10 +149,10 @@ export class HomeComponent implements OnInit {
               this.backwardMove=true;
             }
   
-            this.mobileService.setDataPresent(this.restaurants, this.count, this.totalDocs,this.searchData.searchKey,this.searchData.fieldType,this.forwardMove,this.backwardMove);
+            this.mobileService.setDataPresent(this.products, this.count, this.totalDocs,this.searchData.searchKey,this.searchData.fieldType,this.forwardMove,this.backwardMove);
           }
   
-        });
+        }); 
     }
   
   //for navigating to a particular restaurant 

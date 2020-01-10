@@ -3,6 +3,7 @@ export class Signup{
         public userName:String,
         public email:String,
         public password:String,
-        public userType:String    
+        public userType:String,
+        public phone:Number
     ){}
 }

@@ -46,8 +46,8 @@
   
   
   
-  <div *ngIf="restaurants && restaurants.length">
-    <div *ngFor="let r of restaurants" class="container login-container">
+  <div *ngIf="products && products.length">
+    <div *ngFor="let r of products" class="container login-container">
       <div class="row login-form-2">
         <div class="col-sm-3  ">
           <a (click)="productDetail(r._id)"><img [src]="transform('data:image/jpeg;base64,'+r.image)" alt="" style="width: 300px; height: 300px; border-radius: 5%;" ></a>

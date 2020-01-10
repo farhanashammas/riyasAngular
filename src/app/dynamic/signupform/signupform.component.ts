@@ -14,7 +14,7 @@ import { MobileService } from 'src/app/mobile.service';
 export class SignupformComponent implements OnInit {
 
 
-  signupData = new Signup(null, null, null, null);
+  signupData = new Signup(null, null, null, null,null);
   registerForm: FormGroup;
   submitted = false;
   Status: String;
@@ -30,12 +30,11 @@ export class SignupformComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       userName: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      phone:['',Validators.required,Validators.pattern('[0-9]{9,10}')],
       password: ['', [Validators.required, Validators.minLength(4)]],
       confirmPassword: ['', Validators.required]
     }, { validator: ConfirmPasswordValidator.MatchPassword });
-
   }
-
 
   get f() { return this.registerForm.controls; }
 
@@ -49,6 +48,7 @@ export class SignupformComponent implements OnInit {
     this.signupData.userName = this.registerForm.get('userName').value;
     this.signupData.email = this.registerForm.get('email').value;
     this.signupData.password = this.registerForm.get('password').value;
+    this.signupData.phone = this.registerForm.get('phone').value;
     this.signupData.userType = "user";
 
     // console.log(this.signupData)
