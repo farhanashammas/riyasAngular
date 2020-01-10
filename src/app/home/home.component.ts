@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
              this.products = result.data;
               // .sort((a,b) => b._id.localeCompare(a._id));
                 this.count = 0;
-                this.mobileService.setDataPresent(this.products, this.count, result.totalDocs,"","location",false,false); 
+                // this.mobileService.setDataPresent(this.products, this.count, result.totalDocs,"","location",false,false); 
     
             });
         }
@@ -142,7 +142,7 @@ export class HomeComponent implements OnInit {
               this.backwardMove=true;
             }
   
-            this.mobileService.setDataPresent(this.products, this.count, this.totalDocs,this.searchData.searchKey,this.searchData.fieldType,this.forwardMove,this.backwardMove);
+            // this.mobileService.setDataPresent(this.products, this.count, this.totalDocs,this.searchData.searchKey,this.searchData.fieldType,this.forwardMove,this.backwardMove);
           }
   
         }); 

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LocalStorageService, SessionStorageService, LocalStorage, SessionStorage } from 'angular-web-storage';
 import { BehaviorSubject } from 'rxjs';
-// const url='http://localhost:3000';  
-const url="https://mobitechbackend.herokuapp.com";
+const url='http://localhost:3000';  
+// const url="https://mobitechbackend.herokuapp.com";
 
 
 @Injectable({
@@ -139,13 +139,13 @@ export class MobileService {
   getDataPresent() {
     return this.searchResult;
   }
-  setDataPresent(data, count,totalDocs,searchKey,fieldType,forwardMove,backwardMove) {
-    this.searchResult.restaurants = data;
-    this.searchResult.count = count;
-    this.searchResult.totalDocs=totalDocs;
-    this.searchResult.searchKey=searchKey;
-    this.searchResult.fieldType=fieldType;
-    this.searchResult.forwardMove=forwardMove;
-    this.searchResult.backwardMove=backwardMove;
-  }
+  // setDataPresent(data, count,totalDocs,searchKey,fieldType,forwardMove,backwardMove) {
+  //   this.searchResult.restaurants = data;
+  //   this.searchResult.count = count;
+  //   this.searchResult.totalDocs=totalDocs;
+  //   this.searchResult.searchKey=searchKey;
+  //   this.searchResult.fieldType=fieldType;
+  //   this.searchResult.forwardMove=forwardMove;
+  //   this.searchResult.backwardMove=backwardMove;
+  // }
 }

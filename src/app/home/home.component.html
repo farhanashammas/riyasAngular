@@ -61,6 +61,7 @@
             <h2>{{r.productPrice | currency:"AED"}}</h2>
             <div class="star">
               <rating [(ngModel)]="r.totalRating" [max]="max" [readonly]='true' class="rating" style="color: #428bca;"></rating>
+              <span >({{r.totalRating}})</span>
             </div>
             
             <br>
