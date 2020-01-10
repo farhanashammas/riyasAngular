@@ -27,8 +27,6 @@ export class LoginformComponent implements OnInit {
 
     });
   }
-
-
   get f() { return this.registerForm.controls; }
 
   login() {
@@ -53,9 +51,6 @@ export class LoginformComponent implements OnInit {
           // alert("Success")
           //storing login credentials in localstorge. token, userId , userType and userName
           this.mobileService.setLocalStorage(this.result);
-
-
-
           this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
             this.router.navigate(['products']);
           });

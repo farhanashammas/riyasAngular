@@ -8,7 +8,7 @@ const url="https://mobitechbackend.herokuapp.com";
 
 @Injectable({
   providedIn: 'root'
-})
+})  
 export class MobileService {
   
   elements: any = {};
@@ -98,7 +98,7 @@ export class MobileService {
 
   notification(userId, note, Token){
     let options = this.createHeaders(Token);
-    return this.http.post(url+"/newNote", { userId: userId, note: note }, options);
+    return this.http.post(url+"/note/newNote", { userId: userId, note: note }, options);
   }
 
   changeUserName(name: string, logout: string) {

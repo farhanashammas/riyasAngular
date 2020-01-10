@@ -51,11 +51,10 @@ export class SignupformComponent implements OnInit {
     this.signupData.password = this.registerForm.get('password').value;
     this.signupData.userType = "user";
 
-    console.log(this.signupData)
+    // console.log(this.signupData)
     this.mobileService.signup(this.signupData)
       .subscribe((result) => {
         this.Status = JSON.parse(JSON.stringify(result)).Status;
-
         if (this.Status == "Success") {
           alert("Success");
         this.activeChanged.emit("login");
