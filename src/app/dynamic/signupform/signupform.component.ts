@@ -30,7 +30,7 @@ export class SignupformComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       userName: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      phone:['',[Validators.required,Validators.pattern('^[0-9]{9,10}$')]],
+      phone: ['', [Validators.required, Validators.pattern('[0-9]{9,10}')]],
       password: ['', [Validators.required, Validators.minLength(4)]],
       confirmPassword: ['', Validators.required]
     }, { validator: ConfirmPasswordValidator.MatchPassword });
