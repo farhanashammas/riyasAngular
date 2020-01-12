@@ -20,7 +20,8 @@ import { DomSanitizer } from '@angular/platform-browser';
     product=new Product(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
     submitted:boolean=false;
     value;
-  max = 5;
+    fractionsize;
+    max = 5;
    
     constructor(@Inject(DOCUMENT) document, private mobileService: MobileService, private sanitizer: DomSanitizer,private router: Router, private formBuilder: FormBuilder, private local: LocalStorageService) {
      }

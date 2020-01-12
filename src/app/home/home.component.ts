@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     value;
     input:Boolean=false;
     note:String;
+    fractionsize;
 
     constructor(@Inject(DOCUMENT) document, private mobileService: MobileService, private router: Router, private formBuilder: FormBuilder, public local: LocalStorageService, private sanitizer: DomSanitizer) { }
   
