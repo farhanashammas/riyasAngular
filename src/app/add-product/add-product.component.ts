@@ -171,7 +171,7 @@ this.createForm();
         this.mobileService.addItem(formData, this.elements.Token)
           .subscribe((result) => {
             Status = JSON.parse(JSON.stringify(result)).Status;
-            // alert(Status);
+            alert(Status);
             if(Status=="Success"){
               this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
                 this.router.navigate(['products']);
@@ -203,7 +203,7 @@ this.createForm();
         productColor,productBrand,productDescription,this.elements.Token)
         .subscribe((result) => {
           Status = JSON.parse(JSON.stringify(result)).Status; 
-          // alert(Status);
+          alert(Status);
           if(Status=='Success'){
             this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
               this.router.navigate(['products']);

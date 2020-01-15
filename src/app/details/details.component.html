@@ -1,14 +1,6 @@
 <div class="container login-container" (scroll)="onWindowScroll($event)">
     <h1>MobiTech Electronics LLC</h1>
     <hr>
-    <!-- <div class="row login-form-2">
-      <div class="col-sm-12 border divimg">
-        <img  [src]="transform('data:image/jpeg;base64,'+restaurant.image)" alt="Upload Image">
-      </div>
-    </div>
-    <input type="file" id="picture" name="picture" (change)="fileChange($event)" placeholder="Upload Image" accept="image/*"  *ngIf="elements.userType=='admin'" />
-   -->
-    
   </div>
   
   
@@ -26,7 +18,7 @@
     </div>
       <div  *ngIf='product'>
         <!-- <div class="row" > -->
-          <span><a routerLink='/products' style="color: blue;"><b>Back</b></a></span>
+          <span><a routerLink='/products' style="color: blue;"><u>Back</u></a></span>
 
              <div class="row" > 
                <div class="col-sm-6">
@@ -35,9 +27,6 @@
               <td *ngIf="elements.userType=='admin'">
                 <button class="btn btnEdit" (click)="editItem(product._id,true)">Edit</button>&nbsp;
                 <button class="btn btnDelete" (click)="deleteItem(product._id)">Delete</button></td>
-                <!-- <br> -->
-                <!-- <br> -->
-              <!-- <br> -->
            </div>
           <div class="col-sm-6 ">
             <div class="row">
@@ -72,30 +61,6 @@
         </div>
         <div class="row">
           <!-- <div class="col-sm-3"> -->
-          <p>Colors:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <!-- </div> -->
-        <!-- <div class="col-sm-3"> -->
-          <span><b>{{product.productColor}}</b></span>
-        <!-- </div> -->
-        </div>
-        <div class="row">
-          <!-- <div class="col-sm-3"> -->
-          <p>Camera:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <!-- </div> -->
-        <!-- <div class="col-sm-3"> -->
-          <span><b>{{product.productCamera}}</b></span>
-        <!-- </div> -->
-        </div>
-        <div class="row">
-          <!-- <div class="col-sm-3"> -->
-          <p>Processor:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <!-- </div> -->
-        <!-- <div class="col-sm-3"> -->
-          <span><b>{{product.productProcessor}}</b></span>
-        <!-- </div> -->
-        </div>
-        <div class="row">
-          <!-- <div class="col-sm-3"> -->
           <p>Available:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <!-- </div> -->
         <!-- <div class="col-sm-3"> -->
@@ -103,29 +68,60 @@
         <!-- </div> -->
         </div>
         <div class="row">
-          <!-- <div class="col-sm-3"> -->
-          <p>Memory:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <!-- </div> -->
-        <!-- <div class="col-sm-3"> -->
-          <span><b>{{product.productMemory}}</b></span>
-        <!-- </div> -->
-        </div>
-        <div class="row">
-          <!-- <div class="col-sm-3"> -->
-          <p>Description:</p>&nbsp;&nbsp;&nbsp;
-        <!-- </div> -->
-        <!-- <div class="col-sm-3"> -->
-          <span><b>{{product.productDescription}}</b></span>
-        <!-- </div> -->
-        </div>
-       
-        <div class="row">
           <p>User Rating:</p>&nbsp;&nbsp;&nbsp;
           <div class="star">
             <span><rating [(ngModel)]="product.totalRating" [max]="max" [readonly]='true' class="rating" style="color: #428bca;"></rating></span>&nbsp;
             <span style="color: black;">({{product.totalRating |currency:  fractionsize :"" }})</span>
           </div>
         </div>
+        <div (click)="more()" style="color: blue;" ><u></u></div>
+        <input type="button" [value]="flag==false ?'More Details':'Hide Details'" class="btn" style="color: blue;"
+                (click)="more()" >
+        <div *ngIf="flag">
+          <div class="row">
+            <!-- <div class="col-sm-3"> -->
+            <p>Colors:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <!-- </div> -->
+          <!-- <div class="col-sm-3"> -->
+            <span><b>{{product.productColor}}</b></span>
+          <!-- </div> -->
+          </div>
+          <div class="row">
+            <!-- <div class="col-sm-3"> -->
+            <p>Camera:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <!-- </div> -->
+          <!-- <div class="col-sm-3"> -->
+            <span><b>{{product.productCamera}}</b></span>
+          <!-- </div> -->
+          </div>
+          <div class="row">
+            <!-- <div class="col-sm-3"> -->
+            <p>Processor:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <!-- </div> -->
+          <!-- <div class="col-sm-3"> -->
+            <span><b>{{product.productProcessor}}</b></span>
+          <!-- </div> -->
+          </div>
+        
+          <div class="row">
+            <!-- <div class="col-sm-3"> -->
+            <p>Memory:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <!-- </div> -->
+          <!-- <div class="col-sm-3"> -->
+            <span><b>{{product.productMemory}}</b></span>
+          <!-- </div> -->
+          </div>
+          <div class="row">
+            <!-- <div class="col-sm-3"> -->
+            <p>Description:</p>&nbsp;&nbsp;&nbsp;
+          <!-- </div> -->
+          <!-- <div class="col-sm-3"> -->
+            <span><b>{{product.productDescription}}</b></span>
+          <!-- </div> -->
+          </div>
+        </div>
+       
+        
         <div class="col-sm-6 " *ngIf="elements.userType=='user'">
           <br>
           <br>

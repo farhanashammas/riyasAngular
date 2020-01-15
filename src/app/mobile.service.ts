@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { LocalStorageService, SessionStorageService, LocalStorage, SessionStorage } from 'angular-web-storage';
+import { LocalStorageService } from 'angular-web-storage';
 import { BehaviorSubject } from 'rxjs';
 // const url='http://localhost:3000';  
 const url="https://mobitechbackend.herokuapp.com";
-
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +13,8 @@ export class MobileService {
   elements: any = {};
   searchResult: any = {};
 
-
   constructor(private http: HttpClient, public local: LocalStorageService) { }
-
+  
   private userName = new BehaviorSubject('');
   private logOut = new BehaviorSubject('');
   currentUserName = this.userName.asObservable();
@@ -59,6 +57,16 @@ export class MobileService {
     let options = this.createHeaders(Token);
     return this.http.post(url+"/products/addItem", product, options);
   }
+
+  // addVideo(product, Token) {
+  //   let options = this.createHeaders(Token);
+  //   return this.http.post(url+"/note/addVideo", product, options);
+  // }
+
+  // getVideo(userId, Token){
+  //   let options = this.createHeaders(Token);
+  //   return this.http.post(url+"/note/video", { userId: userId}, options);
+  // }
 
   itemFetch(userId, itemId, Token) {
     let options = this.createHeaders(Token);

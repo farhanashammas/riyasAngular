@@ -22,6 +22,7 @@ import { DomSanitizer } from '@angular/platform-browser';
     value;
     fractionsize;
     max = 5;
+    flag:Boolean=false;
    
     constructor(@Inject(DOCUMENT) document, private mobileService: MobileService, private sanitizer: DomSanitizer,private router: Router, private formBuilder: FormBuilder, private local: LocalStorageService) {
      }
@@ -80,6 +81,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   deleteItem(itemId) {
     this.mobileService.deleteItem(this.elements.userId, itemId, this.elements.Token)
       .subscribe((result) => {
+        alert(JSON.parse(JSON.stringify(result)).Status)
         if (JSON.parse(JSON.stringify(result)).Status == "Success") {
           this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
             this.router.navigate(['products']);
@@ -105,11 +107,16 @@ import { DomSanitizer } from '@angular/platform-browser';
       .subscribe((result) => {
         // console.log(result)
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          alert("Thank you for your feedback!")
           this.router.navigate(['details']);
         });
       
 
       });
+  }
+
+  more(){
+    this.flag=!this.flag;
   }
   }
   

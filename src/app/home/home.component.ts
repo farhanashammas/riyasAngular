@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     value;
     input:Boolean=false;
     note:String;
+    video;
     fractionsize;
 
     constructor(@Inject(DOCUMENT) document, private mobileService: MobileService, private router: Router, private formBuilder: FormBuilder, public local: LocalStorageService, private sanitizer: DomSanitizer) { }
@@ -38,7 +39,13 @@ export class HomeComponent implements OnInit {
         this.mobileService.getNote(this.elements.userId,this.elements.Token)
         .subscribe((data) => {
           this.note = JSON.parse(JSON.stringify(data));
-          });           
+          });   
+          
+          // this.mobileService.getVideo(this.elements.userId,this.elements.Token)
+          // .subscribe((data) => {
+          //   console.log(data)
+          //   this.video = JSON.parse(JSON.stringify(data));
+          //   });
 
         this.registerForm = this.formBuilder.group({
           searchKey: ['', [Validators.required, Validators.minLength(1)]],
@@ -177,6 +184,7 @@ export class HomeComponent implements OnInit {
     deleteItem(itemId) {
       this.mobileService.deleteItem(this.elements.userId, itemId, this.elements.Token)
         .subscribe((result) => {
+          alert(JSON.parse(JSON.stringify(result)).Status)
           if (JSON.parse(JSON.stringify(result)).Status == "Success") {
             this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
               this.router.navigate(['products']);
@@ -228,5 +236,6 @@ export class HomeComponent implements OnInit {
         });
     }
   
+    
   }
   
